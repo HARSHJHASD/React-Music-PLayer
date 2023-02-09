@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../styles/app.scss';
 export const Song = () => {
   return (
     <div className='song-container'>
@@ -9,6 +9,4 @@ export const Song = () => {
     </div>
   )
 }
-
-
 export default Song;
