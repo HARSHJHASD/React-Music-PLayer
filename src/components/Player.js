@@ -12,11 +12,11 @@ export const Player = () => {
         </div>
         <div className='play-control'>
 
-            <FontAwesomeIcon className='skip-back' icon ={faForward}/>
+            <FontAwesomeIcon size="2x" className='skip-back' icon ={faForward}/>
 
-            <FontAwesomeIcon className='play' icon={faPlay}/>
+            <FontAwesomeIcon size="2x" className='play' icon={faPlay}/>
            
-            <FontAwesomeIcon className='skip-forward' icon ={faBackward}/>
+            <FontAwesomeIcon size="2x" className='skip-forward' icon ={faBackward}/>
         </div>        
     </div>
   )
