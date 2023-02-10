@@ -2,13 +2,14 @@ import React from 'react';
 import LibrarySongs from './LibrarySongs';
 import '../styles/app.scss';
 
-const Library = ({isPlaying,audioRef,songs,setCurrentSong}) => {
+const Library = ({setSongs,isPlaying,audioRef,songs,setCurrentSong}) => {
   return (
     <div className='library'>
         <h2>Library</h2>
         <div className="library-songs">
         {songs.map((song) =>(
             <LibrarySongs
+            setSongs={setSongs}
             isPlaying={isPlaying} 
             audioRef={audioRef} 
             id={song.id} 

@@ -33,8 +33,18 @@ setSongInfo({...songInfo,currentTime: current,duration});
       audioRef={audioRef} 
       isPlaying={isPlaying} 
       currentSong={currentSong}/>
-      <Library isPlaying={isPlaying} audioRef={audioRef} songs={songs} setCurrentSong={setCurrentSong}/>
-      <audio onTimeUpdate={timeUpdateHandler} ref={audioRef} src={currentSong.audio}> </audio>
+
+      <Library 
+      isPlaying={isPlaying} 
+      audioRef={audioRef} 
+      songs={songs} 
+      setCurrentSong={setCurrentSong}
+      setSongs={setSongs}/>
+
+      <audio 
+      onTimeUpdate={timeUpdateHandler} 
+      ref={audioRef} 
+      src={currentSong.audio}> </audio>
     </div> 
   );
 }
