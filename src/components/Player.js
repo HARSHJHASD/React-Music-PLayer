@@ -6,7 +6,7 @@ import '../styles/app.scss';
 export const Player = ({setSongInfo,songInfo,audioRef,currentSong,isPlaying,setIsPlaying}) => {
 
 
-  //events handler
+  //events handler=
   const playSongHandler=()=>{
 if(isPlaying){
 audioRef.current.pause();

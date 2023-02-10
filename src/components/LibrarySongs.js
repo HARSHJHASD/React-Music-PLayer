@@ -3,14 +3,15 @@ import '../styles/app.scss';
 
 
 export const LibrarySong = ({isPlaying,song,songs,key,id,setCurrentSong,audioRef}) => {
-    const songsSelectHandler= ()=>{
+    const songsSelectHandler = ()=>
+    {
         const selectedSong =  songs.filter((state)=>state.id===id);
+        console.log(selectedSong[0].id);
         setCurrentSong(selectedSong[0]);
         //audioRef.current.play();
         //check if song is playing...
-        setCurrentSong(song);
-        if(isPlaying)
-        {
+        // setCurrentSong(song);
+        
           const playPromise = audioRef.current.play();
           if(playPromise!==undefined)
           {
@@ -19,7 +20,7 @@ export const LibrarySong = ({isPlaying,song,songs,key,id,setCurrentSong,audioRef
               audioRef.current.play();
             });
           }
-        }
+        
     };
 
   return (
