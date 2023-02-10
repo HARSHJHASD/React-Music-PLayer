@@ -65,6 +65,51 @@ function chillHop() {
             id: uuidv4(),
             active: false,
         },
+        {
+            name: "Bahu Kaale ki",
+            cover: "https://chillhop.com/wp-content/uploads/2022/12/b48463b9b5a0351cc2f34b31fcee6185fdb03bb5-1024x1024.jpg",
+            artist: "Pranjal Dahiya, Sapna Chaudhary, El Train, goodie bags",
+            audio: "https://cdn.pagalworld.us/songs/new/192/Bahu%20Kale%20Ki%20-%20Gajender%20Phogat.mp3",
+            color: ["#7c7561", "#535653"],
+            id: uuidv4(),
+            active: false,
+        },
+        {
+            name: "Bahu Kaale ki",
+            cover: "https://chillhop.com/wp-content/uploads/2022/12/b48463b9b5a0351cc2f34b31fcee6185fdb03bb5-1024x1024.jpg",
+            artist: "Pranjal Dahiya, Sapna Chaudhary, El Train, goodie bags",
+            audio: "https://cdn.pagalworld.us/songs/new/192/Bahu%20Kale%20Ki%20-%20Gajender%20Phogat.mp3",
+            color: ["#7c7561", "#535653"],
+            id: uuidv4(),
+            active: false,
+        },
+        {
+            name: "Bahu Kaale ki",
+            cover: "https://chillhop.com/wp-content/uploads/2022/12/b48463b9b5a0351cc2f34b31fcee6185fdb03bb5-1024x1024.jpg",
+            artist: "Pranjal Dahiya, Sapna Chaudhary, El Train, goodie bags",
+            audio: "https://cdn.pagalworld.us/songs/new/192/Bahu%20Kale%20Ki%20-%20Gajender%20Phogat.mp3",
+            color: ["#7c7561", "#535653"],
+            id: uuidv4(),
+            active: false,
+        },
+        {
+            name: "Bahu Kaale ki",
+            cover: "https://chillhop.com/wp-content/uploads/2022/12/b48463b9b5a0351cc2f34b31fcee6185fdb03bb5-1024x1024.jpg",
+            artist: "Pranjal Dahiya, Sapna Chaudhary, El Train, goodie bags",
+            audio: "https://cdn.pagalworld.us/songs/new/192/Bahu%20Kale%20Ki%20-%20Gajender%20Phogat.mp3",
+            color: ["#7c7561", "#535653"],
+            id: uuidv4(),
+            active: false,
+        },
+        {
+            name: "Bahu Kaale ki",
+            cover: "https://chillhop.com/wp-content/uploads/2022/12/b48463b9b5a0351cc2f34b31fcee6185fdb03bb5-1024x1024.jpg",
+            artist: "Pranjal Dahiya, Sapna Chaudhary, El Train, goodie bags",
+            audio: "https://cdn.pagalworld.us/songs/new/192/Bahu%20Kale%20Ki%20-%20Gajender%20Phogat.mp3",
+            color: ["#7c7561", "#535653"],
+            id: uuidv4(),
+            active: false,
+        }
     ];
 }
 

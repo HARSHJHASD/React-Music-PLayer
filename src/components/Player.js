@@ -1,6 +1,7 @@
 import React,{useRef,useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay,faAngleLeft,faAngleRight,faPause } from '@fortawesome/free-solid-svg-icons'
+import { faPlay,faAngleLeft,faAngleRight,faPause } from '@fortawesome/free-solid-svg-icons';
+import '../styles/app.scss';
 
 export const Player = ({currentSong,isPlaying,setIsPlaying}) => {
 
