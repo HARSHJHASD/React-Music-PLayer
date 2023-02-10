@@ -1,11 +1,11 @@
 import React from 'react'
 import '../styles/app.scss';
-export const Song = () => {
+export const Song = ({currentSong}) => {
   return (
     <div className='song-container'>
-        <h1>Picture</h1>
-        <h1>Song</h1>
-        <h1>Artists</h1>
+        <img src={currentSong.cover}></img>
+        <h1>{currentSong.name}</h1>
+        <h3>{currentSong.artist}</h3>
     </div>
   )
 }

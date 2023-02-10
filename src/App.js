@@ -8,11 +8,12 @@ import "./styles/app.scss";
 export const App = () => {
   //state
   const [songs,setSongs] = useState(data());
+  const [currentSong,setCurrentSong] = useState(songs[0]);
   return (
     <div className='App'>
-      <Song/>
-      <Player/>
-    </div>
+      <Song currentSong={currentSong} />
+      <Player currentSong={currentSong}/>
+    </div> 
   );
 }
 export default App;
