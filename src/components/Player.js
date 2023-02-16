@@ -1,8 +1,8 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay,faAngleLeft,faAngleRight,faPause } from '@fortawesome/free-solid-svg-icons';
 import '../styles/app.scss';
-import {playAudio} from "../util";
+
 
 export const Player = ({changeIcon,
   setCurrentSong,
@@ -15,25 +15,24 @@ export const Player = ({changeIcon,
   isPlaying,
   setIsPlaying}) => {
 //useEffect i.e if song changes,anything changes then we will make sure that
-useEffect(()=>
+const activeLibraryHandler=(nextPrev)=>
 {
   const newSongs = songs.map((song)=>
-        {
-          if(song.id===currentSong.id)
-          return{
-          ...song,
-          active :true,
-          };
-          else{
-            return{
-            ...song,
-            active : false,
-            };
-          }
-        });
-        setSongs(newSongs);
-},[currentSong]);
-
+  {
+    if(song.id===currentSong.id)
+    return{
+    ...song,
+    active :true,
+    };
+    else{
+      return{
+      ...song,
+      active : false,
+      };
+    }
+  });
+  setSongs(newSongs);
+}
   //events handler=
   const playSongHandler=()=>{
 if(isPlaying){
@@ -58,24 +57,28 @@ setIsPlaying(!isPlaying);
     setSongInfo({...songInfo,currentTime:e.target.value})
     //setSongInfo({...songInfo,currentTime : e.Target.value});
   };
-  const skipTrackHandler = (direction)=>
+  const skipTrackHandler = async(direction)=>
   {
     let currentIndex  =songs.findIndex((song)=>song.id===currentSong.id);
     if(direction==='skip-forward'){
       // console.log(songs[(currentIndex+1)%songs.length]);
-      setCurrentSong(songs[(currentIndex+1)%songs.length]);
+      await setCurrentSong(songs[(currentIndex+1)%songs.length]);
+      activeLibraryHandler(songs[(currentIndex+1)%songs.length]);
+
     }
     if(direction==='skip-backward'){
       if(currentIndex===0){
-        setCurrentSong(songs[songs.length-1]);
+       await setCurrentSong(songs[songs.length-1]);
+       activeLibraryHandler(songs[songs.length-1]);
+        if(isPlaying) audioRef.current.play();
         return ;
       }
        setCurrentSong(songs[currentIndex-1]);
+       activeLibraryHandler(songs[currentIndex-1]);
     }
-      // }
       // if((currentIndex-1)%songs.length===-1){
       //   setCurrentSong(songs[songs.length-1]);
-    playAudio(isPlaying,audioRef);
+  if(isPlaying) audioRef.current.play();
   };
 
  
@@ -90,7 +93,7 @@ setIsPlaying(!isPlaying);
             max={songInfo.duration || 0} 
             value={songInfo.currentTime} 
             type="range"/>
-            <p>{getTime(songInfo.duration)}</p>
+            <p>{songInfo.duration ? getTime(songInfo.duration):"0:00"}</p>
         </div>
 
         <div className='play-control'>

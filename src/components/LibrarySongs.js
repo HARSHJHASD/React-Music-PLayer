@@ -1,5 +1,4 @@
 import React from 'react'
-import {playAudio} from "../util";
 import '../styles/app.scss';
 
 
@@ -12,11 +11,11 @@ export const LibrarySong =
   setCurrentSong,
   audioRef,
 setSongs}) => {
-    const songsSelectHandler = ()=>
+    const songsSelectHandler = async()=>
     {
         const selectedSong =  songs.filter((state)=>state.id===id);
         // console.log(selectedSong[0].id);
-        setCurrentSong(selectedSong[0]);
+        await setCurrentSong(selectedSong[0]);
         //add active state
         const newSongs = songs.map((song)=>
         {
@@ -58,6 +57,4 @@ setSongs}) => {
     </div>
   );
 } ;
-
-
 export default LibrarySong;
