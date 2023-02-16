@@ -1,4 +1,5 @@
 import React from 'react'
+import {playAudio} from "../util";
 import '../styles/app.scss';
 
 
@@ -36,17 +37,16 @@ setSongs}) => {
         //check if song is playing...
         // setCurrentSong(song);
         
+        if(isPlaying)
+        {
           const playPromise = audioRef.current.play();
-          if(playPromise!==undefined)
-          {
-            playPromise.then((audio)=>
-            {
+          if(playPromise!==undefined){
+            playPromise.then((audio)=>{
               audioRef.current.play();
             });
           }
-        
+        }                 
     };
-
   return (
     <div onClick={songsSelectHandler} className={`library-song ${song.active ? 'selected': ""}`}>
         <img alt="can't load album file here" src={song.cover}></img>

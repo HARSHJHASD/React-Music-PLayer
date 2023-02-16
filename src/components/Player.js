@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay,faAngleLeft,faAngleRight,faPause } from '@fortawesome/free-solid-svg-icons';
 import '../styles/app.scss';
+import {playAudio} from "../util";
 
 export const Player = ({changeIcon,
   setCurrentSong,
@@ -60,29 +61,21 @@ setIsPlaying(!isPlaying);
   const skipTrackHandler = (direction)=>
   {
     let currentIndex  =songs.findIndex((song)=>song.id===currentSong.id);
-    if(direction==='skip-forward')
-    {
-      
+    if(direction==='skip-forward'){
       // console.log(songs[(currentIndex+1)%songs.length]);
       setCurrentSong(songs[(currentIndex+1)%songs.length]);
-      if(isPlaying){
-        changeIcon("faPlay")
-      }
     }
     if(direction==='skip-backward'){
-      if(currentIndex===0)
-      {
+      if(currentIndex===0){
         setCurrentSong(songs[songs.length-1]);
+        return ;
       }
-      else{
-        setCurrentSong(songs[currentIndex-1]);
+       setCurrentSong(songs[currentIndex-1]);
+    }
       // }
       // if((currentIndex-1)%songs.length===-1){
       //   setCurrentSong(songs[songs.length-1]);
-      }
-      
-      
-    }
+    playAudio(isPlaying,audioRef);
   };
 
  
