@@ -14,7 +14,7 @@ setSongs}) => {
     const songsSelectHandler = ()=>
     {
         const selectedSong =  songs.filter((state)=>state.id===id);
-        console.log(selectedSong[0].id);
+        // console.log(selectedSong[0].id);
         setCurrentSong(selectedSong[0]);
         //add active state
         const newSongs = songs.map((song)=>

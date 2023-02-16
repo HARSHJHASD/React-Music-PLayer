@@ -1,10 +1,37 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay,faAngleLeft,faAngleRight,faPause } from '@fortawesome/free-solid-svg-icons';
 import '../styles/app.scss';
 
-export const Player = ({setCurrentSong,songs,setSongInfo,songInfo,audioRef,currentSong,isPlaying,setIsPlaying}) => {
-
+export const Player = ({changeIcon,
+  setCurrentSong,
+  songs,
+  setSongs,
+  setSongInfo,
+  songInfo,
+  audioRef,
+  currentSong,
+  isPlaying,
+  setIsPlaying}) => {
+//useEffect i.e if song changes,anything changes then we will make sure that
+useEffect(()=>
+{
+  const newSongs = songs.map((song)=>
+        {
+          if(song.id===currentSong.id)
+          return{
+          ...song,
+          active :true,
+          };
+          else{
+            return{
+            ...song,
+            active : false,
+            };
+          }
+        });
+        setSongs(newSongs);
+},[currentSong]);
 
   //events handler=
   const playSongHandler=()=>{
@@ -35,10 +62,26 @@ setIsPlaying(!isPlaying);
     let currentIndex  =songs.findIndex((song)=>song.id===currentSong.id);
     if(direction==='skip-forward')
     {
+      
+      // console.log(songs[(currentIndex+1)%songs.length]);
       setCurrentSong(songs[(currentIndex+1)%songs.length]);
+      if(isPlaying){
+        changeIcon("faPlay")
+      }
     }
-    else if(direction==='skip-backward'){
-      setCurrentSong(songs[Math.abs  ((currentIndex+1)%songs.length   )] );
+    if(direction==='skip-backward'){
+      if(currentIndex===0)
+      {
+        setCurrentSong(songs[songs.length-1]);
+      }
+      else{
+        setCurrentSong(songs[currentIndex-1]);
+      // }
+      // if((currentIndex-1)%songs.length===-1){
+      //   setCurrentSong(songs[songs.length-1]);
+      }
+      
+      
     }
   };
 

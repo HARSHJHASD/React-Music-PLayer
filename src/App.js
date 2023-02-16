@@ -37,7 +37,8 @@ setSongInfo({...songInfo,currentTime: current,duration});
       audioRef={audioRef} 
       isPlaying={isPlaying} 
       currentSong={currentSong}
-      setCurrentSong={setCurrentSong}/>
+      setCurrentSong={setCurrentSong}
+      setSongs = {setSongs}/>
 
       <Library 
       isPlaying={isPlaying} 
